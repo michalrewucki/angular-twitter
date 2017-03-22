@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item text-muted f-s-16">Tweets</li>
+      <li class="list-group-item tweet" *ngFor="let tweet of tweets; let i = index;">
+        <div class="row">
+          <div class="col-md-2">
+            <img [src]="TWITTER_DEFAULT_ICON" class="img-rounded" alt="TestImage" width="64" height="64"/>
+          </div>
+          <div class="col-md-10">
+            <div class="font-weight-bold">
+              {{tweet.name}}
+            </div>
+            <div [innerHtml]="tweet.text | tweet"></div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
