@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule }   from '@angular/router';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
@@ -15,6 +16,9 @@ import { TweetService } from './shared/services/tweet.service'
 import { TweetPipe } from './tweet/pipes/TweetPipe';
 import { SuggestionBoxDirective } from './shared/directives/suggestion-box/suggestion-box.directive';
 import { WysiwygComponent } from './tweet/add/wysiwyg/wysiwyg.component';
+import { TweetComponent } from './tweet/tweet.component';
+import { AboutComponent } from './about/about.component';
+import { UsersComponent } from './users/users.component';
 
 @NgModule({
   declarations: [
@@ -23,13 +27,30 @@ import { WysiwygComponent } from './tweet/add/wysiwyg/wysiwyg.component';
     TweetAddComponent,
     TweetPipe,
     SuggestionBoxDirective,
-    WysiwygComponent
+    WysiwygComponent,
+    TweetComponent,
+    AboutComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    RouterModule.forRoot([
+      {
+        path: '',
+        component: TweetComponent
+      },
+      {
+        path: 'users',
+        component: UsersComponent
+      },
+      {
+        path: 'about',
+        component: AboutComponent
+      }
+    ])
   ],
   providers: [
     TweetService,
