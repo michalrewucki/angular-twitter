@@ -1,0 +1,10 @@
+<div id='editor' class="m-t-10 col-md-12" #editor contenteditable (focus)="focusEditor()" (keypress)="autoSuggestKeyPress($event.keyCode)" (keydown)="autoSuggestKeyDown($event.keyCode)" (blur)="lostFocus()">Tell us something</div>
+<span #textMeasure style="position:absolute; top: -20000px; left: -20000px"></span>
+
+<div appSuggestionBox [show]="suggestionShow" [left]="suggestionBoxLeft" [top]="suggestionBoxTop">
+  <ul class="list-group">
+    <li class="list-group-item list-group-item-action" *ngFor="let user of suggestedUsers" (click)="selectSuggestedUser(user.username)">
+      <img [src]="TWITTER_DEFAULT_ICON" class="img-rounded m-r-10" alt="TestImage" width="24" height="24"/>{{user.username}} ({{user.name}})
+    </li>
+  </ul>
+</div>

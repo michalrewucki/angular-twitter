@@ -1,0 +1,48 @@
+<div class="btn-toolbar m-t-10 row" role="toolbar" aria-label="Toolbar with button groups">
+  <div class="btn-group mr-2" role="group" aria-label="First group">
+    <button type="button" class="btn btn-secondary" (click)="openModal(addLinkModalContent)">Insert Link</button>
+  </div>
+  <!--<div class="btn-group mr-2" role="group" aria-label="Second group">-->
+    <!--<button type="button" class="btn btn-secondary">5</button>-->
+  <!--</div>-->
+  <!--<div class="btn-group" role="group" aria-label="Third group">-->
+    <!--<button type="button" class="btn btn-secondary">8</button>-->
+  <!--</div>-->
+</div>
+
+<app-wysiwyg class="row"></app-wysiwyg>
+
+<div class="btn-toolbar m-t-10 m-b-10 float-right row" role="toolbar" aria-label="Toolbar with button groups">
+  <div class="btn-group" role="group" aria-label="Second group">
+    <button type="button" class="btn btn-secondary" (click)="wysiwyg.clearEditor()">Clear</button>
+    <button type="button" class="btn btn-success" (click)="createTweet()">Submit</button>
+  </div>
+</div>
+
+<!-- Add link template -->
+<template #addLinkModalContent let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Insert Link</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group row">
+      <label for="link-title-input" class="col-2 col-form-label">Title</label>
+      <div class="col-10">
+        <input class="form-control"  type="text" placeholder="(Optional)" [(ngModel)]="linkTitle" id="link-title-input">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="link-content-input" class="col-2 col-form-label">Link</label>
+      <div class="col-10">
+        <input class="form-control" type="text" placeholder="" id="link-content-input" [(ngModel)]="linkHref">
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+    <button type="button" class="btn btn-primary" (click)="insertLink(); c()">Insert</button>
+  </div>
+</template>

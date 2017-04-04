@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Tweet } from '../tweet'
-import { TweetService } from '../tweet.service';
+import { Tweet } from '../../shared/model/tweet'
+import { TweetService } from '../../shared/services/tweet.service';
 
 @Component({
   selector: 'tweet-list',
@@ -22,6 +22,6 @@ export class TweetListComponent implements OnInit {
 
   getTweets(): void {
     this.tweets = this.tweetService
-      .getTweets()
+      .getAll()
   }
 }
