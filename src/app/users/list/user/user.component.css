@@ -1,0 +1,23 @@
+.user {
+  position: relative
+}
+
+.icon {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+}
+
+.locked {
+  color: red;
+}
+
+.text {
+  min-height: 70px;
+  margin-left: 75px;
+}
+
+.right-side {
+  position: absolute;
+  right: 20px;
+}

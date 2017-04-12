@@ -1,0 +1,19 @@
+<li class="list-group-item user row">
+  <img [src]="TWITTER_DEFAULT_ICON" class="icon img-rounded" alt="TestImage" width="64" height="64"/>
+
+  <div class="text">
+    <div class="font-weight-bold align-top" [ngClass]="{ locked : user.locked}">
+      {{user.name}}
+    </div>
+    <div>
+      {{user.username}}
+    </div>
+  </div>
+  <div class="btn-toolbar right-side" role="toolbar" aria-label="Toolbar with button groups">
+    <div class="btn-group" role="group" aria-label="Second group">
+      <button type="button" class="btn btn-danger" (click)="delete(user.id)">Delete</button>
+      <button type="button" class="btn btn-secondary" (click)="lock(user.id)" *ngIf="!user.locked">Lock</button>
+      <button type="button" class="btn btn-secondary" (click)="lock(user.id)" *ngIf="user.locked">Unlock</button>
+    </div>
+  </div>
+</li>

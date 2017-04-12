@@ -4,6 +4,7 @@ import { Tweet } from '../model/tweet';
 
 @Injectable()
 export class TweetService {
+  private TWEET_ID = 3;
   private tweets: Tweet[] = [
     {
       id: 1,
@@ -24,6 +25,8 @@ export class TweetService {
   }
 
   add(tweet : Tweet) {
+    tweet.id = this.TWEET_ID++;
+    tweet.date = new Date();
     this.tweets.push(tweet);
   }
 }

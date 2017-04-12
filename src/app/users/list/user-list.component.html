@@ -1,0 +1,11 @@
+<ul class="list-group">
+  <li class="list-group-item text-muted f-s-16 title row row-no-padding">
+    <div class="col-md-2">
+      Users
+    </div>
+    <div class="col-md-10">
+      <input type="text" class="form-control search float-right" placeholder="Search..." [(ngModel)]="searchText">
+    </div>
+  </li>
+  <app-user *ngFor="let user of users | filterPipe:searchText" [user]="user"></app-user>
+</ul>

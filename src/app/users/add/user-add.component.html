@@ -1,0 +1,29 @@
+<div class="row m-t-10 m-b-10">
+  <form class="col-md-12" [formGroup]="userForm"  *ngIf="active" (ngSubmit)="onSubmit()">
+    <div class="form-group row" [ngClass]="{'has-danger': formErrors.name}">
+      <label for="inlineFormInput" class="col-2 col-form-label">Name</label>
+      <div class="col-10">
+        <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInput" formControlName="name" required>
+        <small *ngIf="formErrors.name" class="alert alert-danger form-text text-muted">{{ formErrors.name }}</small>
+      </div>
+    </div>
+
+    <div class="form-group row" [ngClass]="{'has-danger': formErrors.username}">
+      <label for="inlineFormInputGroup" class="col-2 col-form-label">Username</label>
+      <div class="col-10">
+        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+          <div class="input-group-addon">@</div>
+          <input type="text" class="form-control" id="inlineFormInputGroup" formControlName="username" required>
+        </div>
+
+        <small *ngIf="formErrors.username" class="alert alert-danger form-text text-muted">{{ formErrors.username }}</small>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-12">
+        <button type="submit" class="btn btn-success float-right" [disabled]="!userForm.valid" (submit)="onSubmit()">Create</button>
+      </div>
+    </div>
+  </form>
+</div>

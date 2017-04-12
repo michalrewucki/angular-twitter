@@ -97,7 +97,7 @@ export class WysiwygComponent implements OnInit {
     } else {
       this.suggestionBoxText += letter;
     }
-    this.suggestedUsers = this.userService.getSuggestedUsers(this.suggestionBoxText, 5);
+    this.suggestedUsers = this.userService.getSuggested(this.suggestionBoxText, 5);
   }
 
   private getAbsoluteCaretPosition(element, hiddenElement) : { x:number; y:number; } {
