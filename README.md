@@ -1,2 +1,2 @@
-# angularjs2-twitter
-Twitter based app for AngularJS 2 training purposes
+# angular-twitter
+Twitter based app for Angular training purposes
